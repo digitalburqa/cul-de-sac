@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>cul-de-sac</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"> </script>
+    <script>
+        function search_kw(){
+                gapi.client.setApiKey($('#apikey').val());
+                gapi.client.load('youtube', 'v3', function() {
+                    query_ytube();
+                });
+        }
+        function query_ytube() {
+            var q = $('#query').val();
+            var request = gapi.client.youtube.search.list({
+                   q: q,
+                part: 'snippet'                        
+            });
+            request.execute(function(response) {
+                $('#search-results').html(
+                    '<pre>' + JSON.stringify(response.result) + '</pre>'
+                );
+            });
+        }
+    </script>
+</head>
+<body style="background:white;color:purple;">
+    <div id="buttons">
+        <label>api key</label>
+        <input id="apikey" type="text"/>
+        </br></br>
+        <label>search</label>
+        <input id="query" type="text"/>
+        <button id="search-btn" onclick="search_kw()">
+            search
+        </button>
+    </div>
+    <div id="search-results">
+    </div>
+</body>
+</html>
