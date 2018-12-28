@@ -17,9 +17,18 @@
                    q: q,
                 part: 'snippet'                        
             });
+            // https://developers.google.com/youtube/v3/docs/search/list#response
             request.execute(function(response) {
+                console.log(response.result);
+                var items = response.result['items'];
+                // https://developers.google.com/youtube/v3/docs/search#resource
+                var first_video_id = items[0]['id']['videoId'];
                 $('#search-results').html(
-                    '<pre>' + JSON.stringify(response.result) + '</pre>'
+                    '</br></br>' +
+                    '<iframe width="560" height="315"' +
+                        'src="//www.youtube.com/embed/' + first_video_id +
+                        '" frameborder="0" allowfullscreen>' +
+                    '</iframe>'
                 );
             });
         }
