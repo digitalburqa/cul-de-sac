@@ -1,5 +1,22 @@
 # cul-de-sac
 
+## roadmap
+
+- ~~search youtube api~~
+- ~~start into fullscreen~~
+- limit search results to 50 views
+- add user controls during playback
+- query again on end of video or on next key
+- add relationship to next queries
+    - generic list loop
+    - current video keywords
+    - deep learning from queries
+- enhance website design
+
+## controls
+
+        [esc]   exit fullscreen (TODO during playback)
+
 ## setup
 
 1. create api key
@@ -26,7 +43,7 @@
 
 1. go to the project page
 
-    https://digitalburqa.github.io/cul-de-sac/index.html
+    https://digitalburqa.github.io/cul-de-sac/
 
 ## authors
 
